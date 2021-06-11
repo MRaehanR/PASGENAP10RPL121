@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,7 +96,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
             switch (item.getItemId()){
                 case R.id.option1:
-                    context.startActivity(new Intent(context, EditActivity.class));
+                    Intent intent = new Intent(context, EditActivity.class);
+                    intent.putExtra("title", notesList.get(posisi).getTitle());
+                    intent.putExtra("note", notesList.get(posisi).getNote());
+                    intent.putExtra("uid", notesList.get(posisi).getUid());
+                    context.startActivity(intent);
                     break;
                 case R.id.option2:
                     // kurang delete, harus bisa dapetin id setiap document
