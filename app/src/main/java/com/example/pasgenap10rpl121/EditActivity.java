@@ -23,6 +23,8 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
+        getSupportActionBar().setTitle("Edit Note");
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         et_title = findViewById(R.id.tf_title);
