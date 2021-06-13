@@ -48,7 +48,7 @@ public class EditActivity extends AppCompatActivity {
                 note = et_note.getText().toString().trim();
 
                 if (title.isEmpty() || note.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "All Fields arre required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "All Fields are required", Toast.LENGTH_SHORT).show();
                 } else {
                     db.collection("notes")
                             .document(uid)
@@ -56,6 +56,7 @@ public class EditActivity extends AppCompatActivity {
                     db.collection("notes")
                             .document(uid)
                             .update("note", note);
+                    finish();
                     startActivity(new Intent(getApplicationContext(), NotesActivity.class));
                 }
             }
